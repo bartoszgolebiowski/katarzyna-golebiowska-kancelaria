@@ -174,7 +174,7 @@ li {
   display: block;
   margin-right: 14px;
   flex: 0 0 auto;
-  background: url("public/images/logo-kancelaria.svg") center / contain no-repeat;
+  background: url("assets/images/logo-kancelaria.svg") center / contain no-repeat;
   color: transparent;
   font-size: 0;
 }
@@ -261,7 +261,7 @@ li {
   color: var(--white);
   background:
     linear-gradient(90deg, rgba(77, 44, 38, 0.92) 0%, rgba(77, 44, 38, 0.72) 48%, rgba(77, 44, 38, 0.34) 100%),
-    url("public/images/hero-bg.webp") center / cover no-repeat;
+    url("assets/images/hero-bg.webp") center / cover no-repeat;
 }
 
 .hero__content {
@@ -565,7 +565,7 @@ li {
   color: rgba(245, 245, 245, 0.82);
   background:
     linear-gradient(rgba(77, 44, 38, 0.88), rgba(77, 44, 38, 0.88)),
-    url("public/images/feature-band-bg.webp") center / cover no-repeat;
+    url("assets/images/feature-band-bg.webp") center / cover no-repeat;
 }
 
 .feature-band__inner {
@@ -616,7 +616,7 @@ li {
   color: var(--white);
   background:
     linear-gradient(90deg, rgba(77, 44, 38, 0.93), rgba(77, 44, 38, 0.68)),
-    url("public/images/library-bg.webp") center / cover no-repeat;
+    url("assets/images/library-bg.webp") center / cover no-repeat;
 }
 
 .sub-hero h1 {
@@ -898,7 +898,7 @@ details[open] summary {
   color: rgba(245, 245, 245, 0.82);
   background:
     linear-gradient(rgba(77, 44, 38, 0.78), rgba(77, 44, 38, 0.78)),
-    url("public/images/map-bg.webp") center / cover no-repeat;
+    url("assets/images/map-bg.webp") center / cover no-repeat;
   border-radius: 6px;
 }
 
