@@ -13,7 +13,6 @@
   --line: #d0c1af;
   --sage: #7c6758;
   --shadow: 0 20px 46px rgba(77, 44, 38, 0.16);
-  --serif: "Playfair Display", Georgia, "Times New Roman", serif;
   --sans: "Lato", "Segoe UI", Arial, sans-serif;
 }
 
@@ -71,7 +70,6 @@ h3,
 h4 {
   margin: 0;
   color: var(--ink);
-  font-family: var(--serif);
   font-weight: 600;
   line-height: 1.15;
 }
@@ -188,7 +186,6 @@ li {
 
 .brand-text strong {
   color: var(--white);
-  font-family: var(--serif);
   font-size: 19px;
   font-weight: 600;
   line-height: 1.1;
@@ -384,7 +381,6 @@ li {
 .quick-item strong,
 .quick-item a {
   color: var(--ink);
-  font-family: var(--serif);
   font-size: 22px;
   line-height: 1.25;
 }
@@ -546,7 +542,6 @@ li {
   place-items: center;
   color: var(--ink);
   background: var(--gold);
-  font-family: var(--serif);
   font-weight: 700;
 }
 
@@ -607,7 +602,6 @@ li {
   display: block;
   margin-bottom: 12px;
   color: var(--gold);
-  font-family: var(--serif);
   font-size: 32px;
   line-height: 1;
 }
@@ -735,7 +729,6 @@ summary {
   cursor: pointer;
   padding: 20px 24px;
   color: var(--ink);
-  font-family: var(--serif);
   font-size: 22px;
   font-weight: 600;
 }
@@ -768,7 +761,6 @@ details[open] summary {
 .fee-table th {
   color: var(--ink);
   background: var(--warm-paper);
-  font-family: var(--serif);
   font-size: 20px;
 }
 
@@ -828,7 +820,6 @@ details[open] summary {
 .contact-list strong,
 .contact-list a {
   color: var(--ink);
-  font-family: var(--serif);
   font-size: 23px;
 }
 
@@ -1228,7 +1219,6 @@ details[open] summary {
   display: block;
   font-size: 15px;
   margin-bottom: 4px;
-  font-family: var(--serif);
   color: var(--gold-light);
 }
 
