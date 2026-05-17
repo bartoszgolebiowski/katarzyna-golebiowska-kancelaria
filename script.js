@@ -32,25 +32,79 @@ if (backToTop) {
 
   updateBackToTop();
   window.addEventListener("scroll", updateBackToTop, { passive: true });
-  backToTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+  backToTop.addEventListener("click", () =>
+    window.scrollTo({ top: 0, behavior: "smooth" }),
+  );
 }
 
 // Build mailto subject and body from contact form fields
-const contactForm = document.querySelector('.contact-form');
-if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
+const contactForm = document.querySelector(".contact-form");
+// Handle document send request with template
+const docSendLinks = document.querySelectorAll(".send-documents-link");
+docSendLinks.forEach((link) => {
+  link.addEventListener("click", (e) => {
     e.preventDefault();
 
-    const action = contactForm.getAttribute('action') || '';
-    const to = action.startsWith('mailto:') ? action.replace(/^mailto:/i, '') : action || 'kancelaria@kieleckinotariusz.pl';
+    const to = "kancelaria@kieleckinotariusz.pl";
+    const subject = "Przesłanie dokumentów do czynności notarialnej";
 
-    const getVal = (selector) => (contactForm.querySelector(selector)?.value || '').trim();
-    const name = getVal('#name');
-    const phone = getVal('#phone');
-    const email = getVal('#email');
-    const matterEl = contactForm.querySelector('#matter');
-    const matter = matterEl ? matterEl.options[matterEl.selectedIndex].text.trim() : '';
-    const message = getVal('#message');
+    const body = `Szanowna Pani/Panie,
+
+Przesyłam dokumenty do czynności notarialnej:
+
+--- PROSZĘ UZUPEŁNIĆ PONIŻSZE DANE ---
+
+Rodzaj czynności (zaznacz wybraną):
+☐ Umowa sprzedaży nieruchomości
+☐ Umowa darowizny
+☐ Testament
+☐ Pełnomocnictwo
+☐ Dział spadku
+☐ Inne (opisz): ___________________________
+
+Krótki opis sprawy:
+___________________________________________________________________________
+
+Twoje dane kontaktowe:
+Imię i nazwisko: ________________________
+Telefon: ________________________
+Email: ________________________
+
+--- ZAŁĄCZONE DOKUMENTY ---
+
+Proszę zaznacz, które dokumenty załączasz:
+☐ Dowód tożsamości
+☐ Zaświadczenie z US
+☐ Wypis z księgi wieczystej
+☐ Umowa/dokumenty dotyczące sprawy
+☐ Inne (wymień): ___________________________
+
+Dziękuję!`;
+
+    const mailto = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailto;
+  });
+});
+
+if (contactForm) {
+  contactForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const action = contactForm.getAttribute("action") || "";
+    const to = action.startsWith("mailto:")
+      ? action.replace(/^mailto:/i, "")
+      : action || "kancelaria@kieleckinotariusz.pl";
+
+    const getVal = (selector) =>
+      (contactForm.querySelector(selector)?.value || "").trim();
+    const name = getVal("#name");
+    const phone = getVal("#phone");
+    const email = getVal("#email");
+    const matterEl = contactForm.querySelector("#matter");
+    const matter = matterEl
+      ? matterEl.options[matterEl.selectedIndex].text.trim()
+      : "";
+    const message = getVal("#message");
 
     const subjectRaw = `${matter} - formularz ze strony: ${matter}`;
 
