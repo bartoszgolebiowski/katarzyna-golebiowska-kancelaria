@@ -33,9 +33,26 @@ if (backToTop) {
   updateBackToTop();
   window.addEventListener("scroll", updateBackToTop, { passive: true });
   backToTop.addEventListener("click", () =>
-    window.scrollTo({ top: 0, behavior: "smooth" }),
+    window.scrollTo({ top: 0, behavior: "auto" }),
   );
 }
+
+// Back-link: use history.back() to restore scroll position (instant, no smooth scroll)
+const backLinkAnchors = document.querySelectorAll(".back-link a");
+backLinkAnchors.forEach((link) => {
+  link.addEventListener("click", (e) => {
+    if (window.history.length > 1) {
+      e.preventDefault();
+      const html = document.documentElement;
+      const originalBehavior = html.style.scrollBehavior;
+      html.style.scrollBehavior = "auto";
+      window.history.back();
+      setTimeout(() => {
+        html.style.scrollBehavior = originalBehavior;
+      }, 0);
+    }
+  });
+});
 
 // Build mailto subject and body from contact form fields
 const contactForm = document.querySelector(".contact-form");
