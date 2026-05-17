@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Strona główna -->
+  <url>
+    <loc>https://kieleckinotariusz.pl/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Strony główne -->
+  <url>
+    <loc>https://kieleckinotariusz.pl/czynnosci-notarialne.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://kieleckinotariusz.pl/dokumenty.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kieleckinotariusz.pl/oplaty.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kieleckinotariusz.pl/kontakt.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kieleckinotariusz.pl/blog.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kieleckinotariusz.pl/przydatne-linki.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Klaster blogowy: Testament, darowizna, dożywocie -->
+  <url>
+    <loc>https://kieleckinotariusz.pl/blog/testament-darowizna-dozywocie/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kieleckinotariusz.pl/blog/testament-darowizna-dozywocie/spoke-1-dom-corka-dozywocie-opieka.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kieleckinotariusz.pl/blog/testament-darowizna-dozywocie/spoke-2-darowizna-sluzebnosc-mieszkania-syn.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kieleckinotariusz.pl/blog/testament-darowizna-dozywocie/spoke-3-mieszkanie-wnuczka-testament-darowizna.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kieleckinotariusz.pl/blog/testament-darowizna-dozywocie/spoke-4-testament-kontrola-majatku.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kieleckinotariusz.pl/blog/testament-darowizna-dozywocie/spoke-5-darowizna-z-poleceniem-pomoc-opieka.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kieleckinotariusz.pl/blog/testament-darowizna-dozywocie/spoke-6-drugi-zwiazek-testament-partnerka-dzieci.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kieleckinotariusz.pl/blog/testament-darowizna-dozywocie/spoke-7-dozywocie-pozornosc-brak-swiadczen.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kieleckinotariusz.pl/blog/testament-darowizna-dozywocie/spoke-8-darowizna-mieszkanie-corka-rozwod.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kieleckinotariusz.pl/blog/testament-darowizna-dozywocie/spoke-9-dozywocie-sasiadka-osoba-spoza-rodziny.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kieleckinotariusz.pl/blog/testament-darowizna-dozywocie/spoke-10-zmiana-testamentu-zachowek.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>

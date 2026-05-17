@@ -488,6 +488,17 @@ li {
   object-fit: cover;
 }
 
+.notariusz-photo {
+  aspect-ratio: 3 / 4;
+  object-fit: fill !important;
+  background: #e8e4df;
+}
+
+.map-embed {
+  border: 0;
+  border-radius: 8px;
+}
+
 .prose {
   display: grid;
   gap: 18px;
@@ -961,6 +972,10 @@ details[open] summary {
 .form-note {
   color: var(--text);
   font-size: 14px;
+}
+
+.form-note--top {
+  margin-top: 1rem;
 }
 
 .contact-form .form-note,
