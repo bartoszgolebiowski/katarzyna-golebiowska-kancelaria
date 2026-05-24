@@ -1686,6 +1686,20 @@ details[open] summary {
   margin-bottom: 28px;
 }
 
+/* ── Blog prose lists ───────────────────────────────────────── */
+.blog-prose ul {
+  margin-bottom: 20px;
+  padding-left: 1.4em;
+}
+
+.blog-prose li {
+  list-style: disc;
+  margin: 0.4em 0;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text);
+}
+
 @media (max-width: 720px) {
   .blog-card {
     grid-template-columns: 1fr;
