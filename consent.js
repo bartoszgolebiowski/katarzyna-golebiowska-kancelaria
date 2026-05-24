@@ -39,6 +39,37 @@
     }, 300);
   }
 
+  function showBanner() {
+    var existing = document.getElementById("consent-banner");
+    if (existing) {
+      existing.style.display = "";
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          existing.classList.add("consent-banner--visible");
+          existing.removeAttribute("aria-hidden");
+        });
+      });
+      return;
+    }
+    var banner = buildBanner();
+    document.body.appendChild(banner);
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        banner.classList.add("consent-banner--visible");
+      });
+    });
+    document.getElementById("consent-accept").addEventListener("click", function () {
+      localStorage.setItem(STORAGE_KEY, "granted");
+      grantConsent();
+      hideBanner(banner);
+    });
+    document.getElementById("consent-deny").addEventListener("click", function () {
+      localStorage.setItem(STORAGE_KEY, "denied");
+      denyConsent();
+      hideBanner(banner);
+    });
+  }
+
   function buildBanner() {
     var banner = document.createElement("div");
     banner.id = "consent-banner";
@@ -53,7 +84,7 @@
       "<strong>Ta strona używa plików cookie</strong>" +
       "<p>Używamy plików cookie Google Analytics, aby analizować ruch na stronie i ulepszać jej działanie. " +
       "Twoje dane są anonimowe. Więcej informacji: " +
-      '<a href="polityka-prywatnosci.html">Polityka prywatności</a>.</p>' +
+      '<a href="/polityka-prywatnosci.html">Polityka prywatności</a>.</p>' +
       "</div>" +
       '<div class="consent-banner__actions">' +
       '<button id="consent-deny" class="consent-btn consent-btn--secondary" type="button">Tylko niezbędne</button>' +
@@ -69,40 +100,21 @@
 
     if (stored === "granted") {
       grantConsent();
-      return;
-    }
-
-    if (stored === "denied") {
+    } else if (stored === "denied") {
       denyConsent();
-      return;
+    } else {
+      // No stored choice – show the banner
+      showBanner();
     }
 
-    // No stored choice – show the banner
-    var banner = buildBanner();
-    document.body.appendChild(banner);
-
-    // Trigger CSS transition
-    requestAnimationFrame(function () {
-      requestAnimationFrame(function () {
-        banner.classList.add("consent-banner--visible");
+    // Wire up "Zarządzaj zgodami" button in footer (may not exist on every page)
+    var manageBtn = document.getElementById("consent-manage");
+    if (manageBtn) {
+      manageBtn.addEventListener("click", function () {
+        localStorage.removeItem(STORAGE_KEY);
+        showBanner();
       });
-    });
-
-    document
-      .getElementById("consent-accept")
-      .addEventListener("click", function () {
-        localStorage.setItem(STORAGE_KEY, "granted");
-        grantConsent();
-        hideBanner(banner);
-      });
-
-    document
-      .getElementById("consent-deny")
-      .addEventListener("click", function () {
-        localStorage.setItem(STORAGE_KEY, "denied");
-        denyConsent();
-        hideBanner(banner);
-      });
+    }
   }
 
   if (document.readyState === "loading") {
