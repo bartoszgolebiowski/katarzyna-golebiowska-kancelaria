@@ -1548,6 +1548,41 @@ details[open] summary {
   background: var(--white);
 }
 
+.blog-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: -16px;
+  margin-bottom: 32px;
+  font-size: 14px;
+  color: var(--ink-muted);
+}
+
+.blog-meta a {
+  color: var(--gold);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.blog-meta a:hover {
+  text-decoration: underline;
+}
+
+.blog-meta__separator {
+  color: var(--line);
+}
+
+.blog-disclaimer {
+  margin-top: 48px;
+  padding: 24px;
+  background: var(--warm-paper);
+  border-left: 3px solid var(--gold);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink-muted);
+  border-radius: 0 8px 8px 0;
+}
+
 .blog-article__wrap {
   width: min(780px, calc(100% - 40px));
   margin: 0 auto;
