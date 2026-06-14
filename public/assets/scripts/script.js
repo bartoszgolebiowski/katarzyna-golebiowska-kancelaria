@@ -133,3 +133,37 @@ if (contactForm) {
     window.location.href = mailto;
   });
 }
+
+// Dokumenty: rozwijanie akordeonów w sekcji wskazanej kotwicą w adresie URL
+// (obsługa linków zwrotnych typu dokumenty.html#malzenstwo z artykułów blogowych)
+const docsSections = document.querySelectorAll(".docs-section");
+if (docsSections.length) {
+  const openFromHash = (smooth) => {
+    const id = decodeURIComponent(window.location.hash.replace(/^#/, ""));
+    if (!id) return;
+    const target = document.getElementById(id);
+    if (!target) return;
+
+    if (target.classList.contains("docs-section")) {
+      // Rozwiń wszystkie akordeony w docelowej sekcji
+      target.querySelectorAll("details").forEach((d) => {
+        d.open = true;
+      });
+    } else if (target.tagName === "DETAILS") {
+      // Bezpośrednia kotwica do pojedynczego akordeonu – rozwiń go wraz z rodzicami
+      let node = target;
+      while (node) {
+        if (node.tagName === "DETAILS") node.open = true;
+        node = node.parentElement;
+      }
+    }
+
+    target.scrollIntoView({
+      behavior: smooth ? "smooth" : "auto",
+      block: "start",
+    });
+  };
+
+  openFromHash(false);
+  window.addEventListener("hashchange", () => openFromHash(true));
+}
