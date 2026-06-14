@@ -1,0 +1,13 @@
+{
+  "name": "katarzyna-golebiowska-kancelaria",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build":      "node lib/build.js",
+    "build:site": "node lib/build-site.js --no-serve",
+    "build:pdf":  "node lib/build-pdf.js",
+    "serve":      "node lib/server.mjs",
+    "clean":      "node lib/clean.js",
+    "dev":        "node lib/dev.js"
+  }
+}
