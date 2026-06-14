@@ -79,7 +79,7 @@ export function getSiteRoot(siteRoot = defaultSiteRoot) {
 }
 
 export function getLogoPath(siteRoot) {
-  return path.join(getSiteRoot(siteRoot), "assets", "logo.svg");
+  return path.join(getSiteRoot(siteRoot), "public", "assets", "logo.svg");
 }
 
 export function readAssetAsDataUri(filePath, mimeType) {
@@ -88,7 +88,7 @@ export function readAssetAsDataUri(filePath, mimeType) {
 }
 
 export function createLatoFontCss(siteRoot) {
-  const fontsRoot = path.join(getSiteRoot(siteRoot), "assets", "fonts");
+  const fontsRoot = path.join(getSiteRoot(siteRoot), "public", "assets", "fonts");
 
   return fontFiles
     .map((fontFile) => {

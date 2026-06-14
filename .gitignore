@@ -1,6 +1,5 @@
-assets/pdf/*
-sitemap.xml
-blog/*
-public/*
-!public/llms.txt
-!public/robots.txt
+public/**/*.pdf
+public/**/*.html
+public/**/*.xml
+node_modules/
+pdf-template/node_modules/
