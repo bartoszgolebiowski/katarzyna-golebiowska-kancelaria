@@ -134,30 +134,24 @@ if (contactForm) {
   });
 }
 
-// Dokumenty: rozwijanie i podświetlenie akordeonów na podstawie ?open= w URL
-// Np. dokumenty.html?open=07-testament,03-umowa-darowizny
+// Dokumenty: rozwijanie i podświetlenie akordeonu na podstawie fragmentu (#id)
+// Np. dokumenty.html#07-testament otwiera accordion z data-key="07-testament"
 (function () {
-  const params = new URLSearchParams(window.location.search);
-  const openParam = params.get("open");
-  if (!openParam) return;
+  const openFromHash = () => {
+    const hash = decodeURIComponent(window.location.hash.slice(1));
+    if (!hash) return;
 
-  const keys = openParam.split(",").map((k) => k.trim()).filter(Boolean);
-  if (!keys.length) return;
-
-  const matched = [];
-
-  keys.forEach((key) => {
-    const el = document.querySelector(`details[data-key="${key}"]`);
+    const el = document.querySelector(`details[data-key="${hash}"]`);
     if (!el) return;
+
     el.open = true;
     el.classList.add("accordion-highlight");
-    matched.push(el);
-  });
 
-  if (matched.length) {
-    // Lekkie opóźnienie żeby przeglądarka zdążyła rozwinąć <details> przed scrollem
     setTimeout(() => {
-      matched[0].scrollIntoView({ behavior: "smooth", block: "start" });
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
     }, 80);
-  }
+  };
+
+  openFromHash();
+  window.addEventListener("hashchange", openFromHash);
 })();
