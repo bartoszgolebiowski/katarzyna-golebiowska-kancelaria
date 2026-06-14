@@ -133,3 +133,25 @@ if (contactForm) {
     window.location.href = mailto;
   });
 }
+
+// Dokumenty: rozwijanie i podświetlenie akordeonu na podstawie fragmentu (#id)
+// Np. dokumenty.html#07-testament otwiera accordion z data-key="07-testament"
+(function () {
+  const openFromHash = () => {
+    const hash = decodeURIComponent(window.location.hash.slice(1));
+    if (!hash) return;
+
+    const el = document.querySelector(`details[data-key="${hash}"]`);
+    if (!el) return;
+
+    el.open = true;
+    el.classList.add("accordion-highlight");
+
+    setTimeout(() => {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 80);
+  };
+
+  openFromHash();
+  window.addEventListener("hashchange", openFromHash);
+})();

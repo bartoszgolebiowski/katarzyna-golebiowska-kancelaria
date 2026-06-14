@@ -796,6 +796,12 @@ details {
   border-radius: 6px;
 }
 
+details.accordion-highlight {
+  border: 2px solid var(--gold);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--gold) 18%, transparent);
+  scroll-margin-top: 96px;
+}
+
 summary {
   cursor: pointer;
   padding: 20px 24px;
@@ -1854,6 +1860,32 @@ details[open] summary {
 
 .blog-download-link:hover {
   color: var(--gold) !important;
+}
+
+/* ── Tekstowe CTA na dole artykułu (zastępuje powielony boks) ── */
+.blog-cta-text {
+  margin: 36px 0 8px;
+  padding: 20px 24px;
+  background: var(--warm-paper);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 8px 8px 0;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text);
+}
+
+.blog-cta-text p {
+  margin: 0;
+}
+
+.blog-cta-text a {
+  color: var(--ink);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.blog-cta-text a:hover {
+  color: var(--gold);
 }
 
 
