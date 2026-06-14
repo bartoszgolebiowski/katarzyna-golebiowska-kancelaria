@@ -1,0 +1,28 @@
+{
+  "name": "kancelaria-pdf-template",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Branded HTML template and PDF generator for Kancelaria Notarialna Katarzyna Golebiowska.",
+  "type": "module",
+  "main": "src/index.js",
+  "bin": {
+    "kancelaria-pdf": "bin/generate-pdf.js"
+  },
+  "scripts": {
+    "pdf": "node bin/generate-pdf.js",
+    "pdf:html": "node bin/render-html.js",
+    "pdf:example": "node bin/generate-pdf.js --input examples/content.html --output dist/example.pdf --title \"Przykladowy dokument\"",
+    "pdf:example-html": "node bin/render-html.js --input examples/content.html --output dist/example.html --title \"Przykladowy dokument\""
+  },
+  "keywords": [
+    "pdf",
+    "html-template",
+    "puppeteer"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "puppeteer": "^24.10.2"
+  }
+}
