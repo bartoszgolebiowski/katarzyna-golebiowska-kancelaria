@@ -790,33 +790,16 @@ li {
   gap: 14px;
 }
 
-/* ── Sekcje dokumentów (Hub & Spoke, kotwice #id) ────────────── */
-.docs-sections {
-  display: grid;
-  gap: 44px;
-}
-
-.docs-section {
-  scroll-margin-top: 96px;
-}
-
-.docs-section__title {
-  font-size: 26px;
-  font-weight: 600;
-  margin: 0 0 8px;
-  color: var(--ink);
-}
-
-.docs-section__intro {
-  margin: 0 0 18px;
-  color: var(--text);
-  line-height: 1.6;
-}
-
 details {
   background: var(--white);
   border: 1px solid var(--line);
   border-radius: 6px;
+}
+
+details.accordion-highlight {
+  border: 2px solid var(--gold);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--gold) 18%, transparent);
+  scroll-margin-top: 96px;
 }
 
 summary {

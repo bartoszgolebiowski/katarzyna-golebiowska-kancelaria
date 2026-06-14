@@ -134,36 +134,30 @@ if (contactForm) {
   });
 }
 
-// Dokumenty: rozwijanie akordeonów w sekcji wskazanej kotwicą w adresie URL
-// (obsługa linków zwrotnych typu dokumenty.html#malzenstwo z artykułów blogowych)
-const docsSections = document.querySelectorAll(".docs-section");
-if (docsSections.length) {
-  const openFromHash = (smooth) => {
-    const id = decodeURIComponent(window.location.hash.replace(/^#/, ""));
-    if (!id) return;
-    const target = document.getElementById(id);
-    if (!target) return;
+// Dokumenty: rozwijanie i podświetlenie akordeonów na podstawie ?open= w URL
+// Np. dokumenty.html?open=07-testament,03-umowa-darowizny
+(function () {
+  const params = new URLSearchParams(window.location.search);
+  const openParam = params.get("open");
+  if (!openParam) return;
 
-    if (target.classList.contains("docs-section")) {
-      // Rozwiń wszystkie akordeony w docelowej sekcji
-      target.querySelectorAll("details").forEach((d) => {
-        d.open = true;
-      });
-    } else if (target.tagName === "DETAILS") {
-      // Bezpośrednia kotwica do pojedynczego akordeonu – rozwiń go wraz z rodzicami
-      let node = target;
-      while (node) {
-        if (node.tagName === "DETAILS") node.open = true;
-        node = node.parentElement;
-      }
-    }
+  const keys = openParam.split(",").map((k) => k.trim()).filter(Boolean);
+  if (!keys.length) return;
 
-    target.scrollIntoView({
-      behavior: smooth ? "smooth" : "auto",
-      block: "start",
-    });
-  };
+  const matched = [];
 
-  openFromHash(false);
-  window.addEventListener("hashchange", () => openFromHash(true));
-}
+  keys.forEach((key) => {
+    const el = document.querySelector(`details[data-key="${key}"]`);
+    if (!el) return;
+    el.open = true;
+    el.classList.add("accordion-highlight");
+    matched.push(el);
+  });
+
+  if (matched.length) {
+    // Lekkie opóźnienie żeby przeglądarka zdążyła rozwinąć <details> przed scrollem
+    setTimeout(() => {
+      matched[0].scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 80);
+  }
+})();
