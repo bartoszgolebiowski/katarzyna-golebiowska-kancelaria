@@ -260,13 +260,27 @@ blockquote,
 
 .pdf-topline {
   display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
   align-content: center;
-  gap: 4px;
-  min-width: 232px;
   padding: 16px 22px;
   color: rgba(245, 245, 245, 0.86);
   background: var(--ink-soft);
   font-size: 10.5px;
+}
+
+.pdf-topline-section {
+  display: grid;
+  gap: 2px;
+}
+
+.pdf-topline-label {
+  display: block;
+  font-size: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: ${brand.colors.goldLight};
+  margin-bottom: 3px;
 }
 
 .pdf-topline strong {
@@ -436,9 +450,18 @@ export function createPdfHtml({
           </div>
         </div>
         <div class="pdf-topline">
-          <div><strong>${escapeHtml(brand.city)}</strong>, ${escapeHtml(brand.addressLine)}</div>
-          <div>${escapeHtml(brand.entrance)}</div>
-          <div>${escapeHtml(brand.hoursLine)}</div>
+          <div class="pdf-topline-section">
+            <span class="pdf-topline-label">Godziny</span>
+            ${escapeHtml(brand.weekdayHours)}<br />
+            ${escapeHtml(brand.saturdayHours)}<br />
+            <span style="font-size: 9px; color: rgba(245, 245, 245, 0.75);">Wizyty poza godzinami po umówieniu</span>
+          </div>
+          <div class="pdf-topline-section">
+            <span class="pdf-topline-label">Kontakt</span>
+            ${escapeHtml(brand.phone)}<br />
+            ${escapeHtml(brand.mobile)}<br />
+            ${escapeHtml(brand.email)}
+          </div>
         </div>
       </header>
       <main class="pdf-content" aria-label="Treść dokumentu PDF">
