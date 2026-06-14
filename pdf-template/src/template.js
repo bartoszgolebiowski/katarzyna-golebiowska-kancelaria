@@ -80,17 +80,6 @@ body {
   print-color-adjust: exact;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background-image: url("${watermarkDataUri}");
-  background-repeat: repeat;
-  background-size: 180px 115px;
-}
-
 @page {
   size: A4;
 }
@@ -142,13 +131,41 @@ a {
   text-decoration: none;
 }
 
-ul,
+ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 14px;
+}
+
+ul li {
+  position: relative;
+  padding-left: 20px;
+  margin: 0.4em 0;
+}
+
+ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 11px;
+  height: 11px;
+  border: 1.2px solid var(--ink-muted);
+  border-radius: 2px;
+  background-color: var(--white);
+}
+
+ul ul {
+  padding-left: 20px;
+  margin-top: 6px;
+}
+
 ol {
   margin-bottom: 14px;
   padding-left: 1.5em;
 }
 
-li {
+ol li {
   margin: 0.28em 0;
 }
 
@@ -332,12 +349,12 @@ function createFooterStyles(fontCss) {
 
   .pdf-footer {
     width: 100%;
-    padding: 4.2mm 9mm 4mm;
+    padding: 5mm 15mm 10mm;
     color: rgba(245, 245, 245, 0.82);
     background: ${brand.colors.ink};
     border-top: 1.2mm solid ${brand.colors.accent};
-    font-size: 7.7px;
-    line-height: 1.35;
+    font-size: 9.8px;
+    line-height: 1.4;
     box-sizing: border-box;
   }
 
@@ -357,7 +374,7 @@ function createFooterStyles(fontCss) {
     display: block;
     margin-bottom: 1.5mm;
     color: ${brand.colors.goldLight};
-    font-size: 6.7px;
+    font-size: 8px;
     font-weight: 700;
     text-transform: uppercase;
   }

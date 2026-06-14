@@ -84,42 +84,47 @@ Przeanalizuj dostarczony tekst i podziel go na dwie pule:
    - Breadcrumbs w HTML i JSON-LD (3 poziomy)
    - Wszystkie tagi Open Graph (`og:title`, `og:description`, `og:url`)
    - Treść artykułu wewnątrz `<article class="blog-prose">`
-8. Zapisz jako `index.html` w nowym katalogu o nazwie opartej na temacie 
-   (np. `blog/darowizna-testament-dozywocie/`).
+8. Zapisz jako `index.html` w nowym katalogu źródłowym o nazwie opartej na temacie 
+   (np. `site-src/blog/darowizna-testament-dozywocie/`).
+9. Jeśli artykuł dotyczy testamentu, dodaj bezpośrednio przed sekcją `.blog-disclaimer` akapit pobierania pliku PDF z wykazem dokumentów:
+   ```html
+   <p class="blog-download-box">
+     Planujesz sporządzenie testamentu u notariusza? Przed wizytą w kancelarii warto przygotować niezbędne dane i dokumenty. Peła lista jest dostępna do pobrania w formacie PDF: 
+     <a href="../../assets/pdf/testament-testament.pdf" download class="blog-download-link"><strong>pobierz wykaz dokumentów do testamentu (PDF)</strong></a>.
+   </p>
+   ```
 
 ---
 
-### FAZA 3 — Artykuły Wspierające (`spoke-[id]-nazwa.html`)
+### FAZA 3 — Artykuły Wspierające (`spoke-[id]-[nazwa].html`)
 
 Dla każdego elementu z puli **[PRZYPADKI PRAKTYCZNE]**:
 
-1. **Wygeneruj nagłówek Long-Tail H1** — precyzyjne, życiowe zapytanie 
-   użytkownika w wyszukiwarce. (Np. "Czy można odwołać darowiznę domu?").
+1. **Wygeneruj nagłówek Long-Tail H1** — precyzyjne, życiowe zapytanie użytkownika w wyszukiwarce. (Np. "Czy można odwołać darowiznę domu?").
 2. Wygeneruj unikalny `<meta name="description">` dla każdego przypadku.
-3. Wklej **DOKŁADNIE ORYGINALNĄ** treść przypadku — bez żadnych przeróbek — 
-   opakuj akapity w `<p>` wewnątrz `<article class="blog-prose">`.
+3. Wklej **DOKŁADNIE ORYGINALNĄ** treść przypadku — bez żadnych przeróbek — opakuj akapity w `<p>` wewnątrz `<article class="blog-prose">`.
 4. Na dole pliku dodaj link powrotny:
    ```html
    <p class="back-link">
      <a href="./index.html">← Wróć do artykułu: {H1 z index.html}</a>
    </p>
    ```
-5. Wygeneruj przyjazną URL nazwę pliku z H1 (lowercase, bez polskich znaków).
-6. Użyj struktury z Fazy 2, podmieniając meta tagi, breadcrumbs (4 poziomy) 
-   oraz JSON-LD Schema.
-   - Breadcrumb URL i Item dla poziomu 3 powinien wskazywać na HUB (`index.html`).
-   - Breadcrumb poziomu 4 to aktualny SPOKE.
-   myślniki zamiast spacji, np. `dom-opieka-zachowek.html`).
-
-5. Użyj szablonu z Fazy 2 z dwoma różnicami dla spoke'a:
-   - wrapper treści: `<div class="blog-article__wrap">` (bez klasy `wrap`)
-   - breadcrumb 4-poziomowy:
+5. Wygeneruj przyjazną URL nazwę pliku z H1 (lowercase, bez polskich znaków, myślniki zamiast spacji, np. `spoke-[id]-dom-opieka-zachowek.html`). Zapisz go w tym samym katalogu co hub, np. `site-src/blog/darowizna-testament-dozywocie/spoke-1-dom-opieka-zachowek.html`.
+6. Użyj struktury z Fazy 2 (szablonu base-template), z dwiema różnicami dla spoke'a:
+   - wrapper treści ma używać klasy: `<div class="blog-article__wrap">` (bez klasy `wrap`)
+   - breadcrumb 4-poziomowy w HTML:
      ```html
      <a href="../../index.html">Strona główna</a><span>/</span
      ><a href="../../blog.html">Blog</a><span>/</span
      ><a href="./index.html">{H1 z index.html}</a><span>/</span
      ><span>{H1 spoke'a}</span>
      ```
+7. Jeśli dany przypadek dotyczy testamentu, dodaj bezpośrednio przed sekcją `.blog-disclaimer` akapit pobierania pliku PDF z wykazem dokumentów, identycznie jak w Fazie 2 (krok 9).
+8. JSON-LD Schema (BreadcrumbList) na 4 poziomy:
+     - Poziom 1: Strona główna (`https://kieleckinotariusz.pl/`)
+     - Poziom 2: Blog (`https://kieleckinotariusz.pl/blog.html`)
+     - Poziom 3: Hub (`https://kieleckinotariusz.pl/blog/{kategoria}/`)
+     - Poziom 4: Spoke (`https://kieleckinotariusz.pl/blog/{kategoria}/spoke-[id]-[nazwa].html`)
 
 ---
 
@@ -143,36 +148,47 @@ Zachowaj **100% zgodności znakowej** z oryginalnymi akapitami tekstowymi.
 
 ---
 
-## Aktualizacja blog.html
+## Aktualizacja site-src/pages/blog.html
 
-Po wygenerowaniu plików zaproponuj użytkownikowi dodanie karty artykułu do 
-`blog.html`. Wzorzec karty (SEO-friendly):
+Po wygenerowaniu plików zaproponuj użytkownikowi dodanie karty artykułu do `site-src/pages/blog.html`. Wzorzec karty (SEO-friendly):
 
 ```html
-<article class="blog-card">
+<article
+  class="blog-card"
+  onclick="window.location = '{{relativeRoot}}blog/{folder}/index.html'"
+>
   <div class="blog-card__body">
     <p class="blog-card__label">{Kategoria prawna}</p>
-    <h2 class="blog-card__title">{H1 z index.html}</h2>
-    <!-- Poniższy opis musi być dosłownym cytatem z tekstu prawnego -->
+    <h2 class="blog-card__title">
+      <a
+        href="{{relativeRoot}}blog/{folder}/index.html"
+        onclick="event.stopPropagation()"
+        >{H1 z index.html}</a
+      >
+    </h2>
     <p class="blog-card__desc">{Pierwsze zdanie wstępu z index.html — absolutnie bez zmian}</p>
-    <a class="blog-card__link" href="{ścieżka}/index.html">Czytaj artykuł →</a>
-    <div class="blog-card__sub">
-      <p class="blog-card__sub-label">Najczęstsze przypadki i pytania</p>
-      <div class="blog-card__sub-links">
-        <!-- <a href="{spoke}"> dla każdego artykułu wspierającego -->
-      </div>
+    <p class="blog-card__sub-label">Najczęstsze przypadki i pytania</p>
+    <div class="blog-card__spokes">
+      <!-- Dla każdego artykułu wspierającego (spoke): -->
+      <a
+        onclick="event.stopPropagation()"
+        href="{{relativeRoot}}blog/{folder}/spoke-[id]-[nazwa].html"
+        >{H1 spoke'a}</a
+      >
     </div>
   </div>
-</article>
-```
-      </div>
-    </div>
-  </div>
+  <a
+    href="{{relativeRoot}}blog/{folder}/index.html"
+    class="blog-card__arrow"
+    onclick="event.stopPropagation()"
+    aria-label="Czytaj artykuł"
+    >→</a
+  >
 </article>
 ```
 
-Pamiętaj też o **odkomentowaniu** sekcji `blog-grid` w `blog.html` jeśli
-jest zakomentowana.
+Upewnij się, że nowa karta jest umieszczana wewnątrz `<div class="blog-cards">` w pliku `site-src/pages/blog.html`.
+Po dodaniu nowej karty, użytkownik powinien uruchomić `npm run build` w celu skompilowania zmian.
 
 ---
 

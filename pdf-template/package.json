@@ -9,10 +9,11 @@
     "kancelaria-pdf": "bin/generate-pdf.js"
   },
   "scripts": {
+    "build": "node bin/build-site.js",
+    "build:pdf": "node bin/build-site.js --pdf",
+    "clean": "node bin/clean.js",
     "pdf": "node bin/generate-pdf.js",
-    "pdf:html": "node bin/render-html.js",
-    "pdf:example": "node bin/generate-pdf.js --input examples/content.html --output dist/example.pdf --title \"Przykladowy dokument\"",
-    "pdf:example-html": "node bin/render-html.js --input examples/content.html --output dist/example.html --title \"Przykladowy dokument\""
+    "pdf:html": "node bin/render-html.js"
   },
   "keywords": [
     "pdf",

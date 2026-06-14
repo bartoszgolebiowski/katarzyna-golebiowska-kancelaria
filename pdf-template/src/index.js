@@ -47,21 +47,32 @@ export async function generatePdfFromHtml({
     await page.setContent(html, { waitUntil: "networkidle0" });
     await page.emulateMediaType("print");
 
-    await page.pdf({
-      path: outputPath,
+    const pdfBuffer = await page.pdf({
       format: "A4",
       printBackground: true,
       displayHeaderFooter: true,
       headerTemplate: createEmptyHeaderTemplate(),
       footerTemplate: createPdfFooterTemplate({ siteRoot }),
       margin: {
-        top: "15mm",
-        right: "16mm",
-        bottom: "32mm",
-        left: "16mm"
+        top: "20mm",
+        right: "15mm",
+        bottom: "36mm",
+        left: "15mm"
       },
       ...pdfOptions
     });
+
+    let attempts = 5;
+    while (attempts > 0) {
+      try {
+        await fs.writeFile(outputPath, pdfBuffer);
+        break;
+      } catch (error) {
+        attempts -= 1;
+        if (attempts === 0) throw error;
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+      }
+    }
   } finally {
     await browser.close();
   }
