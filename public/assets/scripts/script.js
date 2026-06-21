@@ -155,3 +155,57 @@ if (contactForm) {
   openFromHash();
   window.addEventListener("hashchange", openFromHash);
 })();
+
+// Sticky header: chowanie sekcji kontaktowej (topline) przy przewijaniu w dół, pokazywanie przy przewijaniu w górę
+(function () {
+  const header = document.querySelector(".site-header");
+  const topline = header?.querySelector(".topline");
+  if (!header || !topline) return;
+
+  // Funkcja aktualizująca wysokość topline (ustawia zmienną CSS)
+  const updateToplineHeight = () => {
+    const height = topline.offsetHeight;
+    header.style.setProperty("--translate-y", `-${height}px`);
+  };
+
+  // Uruchomienie na start i na zmianę rozmiaru okna
+  updateToplineHeight();
+  window.addEventListener("resize", updateToplineHeight, { passive: true });
+
+  let lastScrollY = window.scrollY;
+  const threshold = 10; // minimalna różnica w pikselach, aby wywołać akcję
+
+  window.addEventListener("scroll", () => {
+    const currentScrollY = window.scrollY;
+
+    // Jeśli menu mobilne jest otwarte, nie chowaj topline
+    if (document.body.classList.contains("menu-open")) {
+      lastScrollY = currentScrollY;
+      return;
+    }
+
+    // Zawsze pokazuj topline na samej górze strony
+    if (currentScrollY <= 50) {
+      header.classList.remove("topline-hidden");
+      lastScrollY = currentScrollY;
+      return;
+    }
+
+    // Sprawdzenie kierunku przewijania z uwzględnieniem progu (threshold)
+    if (Math.abs(currentScrollY - lastScrollY) > threshold) {
+      if (currentScrollY > lastScrollY) {
+        // Przewijanie w dół - ukryj topline
+        header.classList.add("topline-hidden");
+      } else {
+        // Przewijanie w górę - pokaż topline
+        header.classList.remove("topline-hidden");
+      }
+      lastScrollY = currentScrollY;
+    }
+  }, { passive: true });
+
+  // Pokaż topline, jeśli użytkownik używa tabulacji do nawigacji (dostępność)
+  header.addEventListener("focusin", () => {
+    header.classList.remove("topline-hidden");
+  });
+})();

@@ -144,6 +144,12 @@ li {
   top: 0;
   z-index: 50;
   box-shadow: 0 8px 30px rgba(77, 44, 38, 0.14);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.site-header.topline-hidden {
+  transform: translateY(var(--translate-y, -46px));
 }
 
 .nav-shell {
@@ -1554,6 +1560,30 @@ details[open] summary {
 .blog-card__body {
   display: grid;
   gap: 14px;
+}
+
+.blog-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.blog-card__label {
+  color: var(--gold);
+}
+
+.blog-card__date {
+  color: var(--ink-muted);
+  font-weight: 500;
+}
+
+.blog-card__separator {
+  color: var(--line);
 }
 
 .blog-card__title {
