@@ -1383,6 +1383,24 @@ details[open] summary {
     flex-direction: column;
     padding: 20px 0;
   }
+
+  summary {
+    padding: 18px 20px;
+  }
+
+  .summary-download-btn,
+  .accordion-nested > details > summary > .summary-download-btn {
+    position: static;
+    display: flex;
+    width: fit-content;
+    transform: none;
+    margin-top: 12px;
+  }
+
+  .summary-download-btn:hover,
+  .accordion-nested > details > summary > .summary-download-btn:hover {
+    transform: none;
+  }
 }
 
 @media (max-width: 430px) {
@@ -1917,7 +1935,6 @@ details[open] summary {
 .blog-cta-text a:hover {
   color: var(--gold);
 }
-
 
 @media (max-width: 720px) {
   .blog-card {
