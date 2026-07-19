@@ -1,0 +1,16 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/baza-wiedzy/majatek-wspolny-osobisty/index.html", "destination": "/baza-wiedzy/majatek-wspolny-osobisty/", "permanent": true },
+    { "source": "/baza-wiedzy/notariusz-poza-kancelaria/index.html", "destination": "/baza-wiedzy/notariusz-poza-kancelaria/", "permanent": true },
+    { "source": "/baza-wiedzy/pelnomocnictwo/index.html", "destination": "/baza-wiedzy/pelnomocnictwo/", "permanent": true },
+    { "source": "/baza-wiedzy/poswiadczenie-dziedziczenia/index.html", "destination": "/baza-wiedzy/poswiadczenie-dziedziczenia/", "permanent": true },
+    { "source": "/baza-wiedzy/rozdzielnosc-majatkowa/index.html", "destination": "/baza-wiedzy/rozdzielnosc-majatkowa/", "permanent": true },
+    { "source": "/baza-wiedzy/testament-darowizna-dozywocie/index.html", "destination": "/baza-wiedzy/testament-darowizna-dozywocie/", "permanent": true },
+    { "source": "/baza-wiedzy/umowa-przedwstepna/index.html", "destination": "/baza-wiedzy/umowa-przedwstepna/", "permanent": true },
+    { "source": "/baza-wiedzy/zakup-mieszkania-rynek-wtorny/index.html", "destination": "/baza-wiedzy/zakup-mieszkania-rynek-wtorny/", "permanent": true },
+    { "source": "/blog.html", "destination": "/baza-wiedzy.html", "permanent": true },
+    { "source": "/blog/:path*", "destination": "/baza-wiedzy/:path*", "permanent": true }
+  ]
+}

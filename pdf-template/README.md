@@ -2,7 +2,7 @@
 
 Standalone JavaScript package for generating branded PDF files from an HTML fragment.
 
-The template uses the same visual language as the website blog: Lato fonts from `assets/fonts`, the brown/parchment/accent palette from `style.css`, the existing `assets/logo.svg`, and a soft repeating watermark with the kancelaria name.
+The template uses the same visual language as the website's knowledge base (baza wiedzy): Lato fonts from `assets/fonts`, the brown/parchment/accent palette from `style.css`, the existing `assets/logo.svg`, and a soft repeating watermark with the kancelaria name.
 
 ## Install
 

@@ -36,6 +36,6 @@ Kancelaria Notarialna Katarzyna Gołębiowska mieści się w centrum Kielc przy 
 - Czynności notarialne: https://kieleckinotariusz.pl/czynnosci-notarialne.html
 - Wymagane dokumenty: https://kieleckinotariusz.pl/dokumenty.html
 - Opłaty notarialne: https://kieleckinotariusz.pl/oplaty.html
-- Blog: https://kieleckinotariusz.pl/blog.html
+- Baza wiedzy: https://kieleckinotariusz.pl/baza-wiedzy.html
 - Kontakt: https://kieleckinotariusz.pl/kontakt.html
 - Mapa witryny: https://kieleckinotariusz.pl/sitemap.xml
