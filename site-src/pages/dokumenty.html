@@ -9,10 +9,23 @@ schema_json: |
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Strona główna", "item": "https://kieleckinotariusz.pl/" },
-        { "@type": "ListItem", "position": 2, "name": "Dokumenty", "item": "https://kieleckinotariusz.pl/dokumenty.html" }
+      "@graph": [
+        {
+          "@type": "ItemPage",
+          "url": "https://kieleckinotariusz.pl/dokumenty.html",
+          "name": "Dokumenty potrzebne u notariusza - Kancelaria Notarialna Katarzyna Gołębiowska",
+          "description": "Lista dokumentów potrzebnych do czynności notarialnych w Kielcach: umowy, testamenty, spadki.",
+          "mainEntity": {
+            "@id": "https://kieleckinotariusz.pl/#notary"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Strona główna", "item": "https://kieleckinotariusz.pl/" },
+            { "@type": "ListItem", "position": 2, "name": "Dokumenty", "item": "https://kieleckinotariusz.pl/dokumenty.html" }
+          ]
+        }
       ]
     }
   </script>

@@ -9,10 +9,20 @@ schema_json: |
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Strona główna", "item": "https://kieleckinotariusz.pl/" },
-        { "@type": "ListItem", "position": 2, "name": "Kontakt", "item": "https://kieleckinotariusz.pl/kontakt.html" }
+      "@graph": [
+        {
+          "@type": "ContactPage",
+          "url": "https://kieleckinotariusz.pl/kontakt.html",
+          "name": "Kontakt - Kancelaria Notarialna Katarzyna Gołębiowska",
+          "mainEntity": { "@id": "https://kieleckinotariusz.pl/#notary" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Strona główna", "item": "https://kieleckinotariusz.pl/" },
+            { "@type": "ListItem", "position": 2, "name": "Kontakt", "item": "https://kieleckinotariusz.pl/kontakt.html" }
+          ]
+        }
       ]
     }
   </script>
