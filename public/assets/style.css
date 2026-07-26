@@ -1635,35 +1635,6 @@ details[open] summary {
   max-width: 680px;
 }
 
-.blog-card__spokes {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 6px;
-}
-
-.blog-card__spokes a {
-  display: inline-flex;
-  align-items: center;
-  padding: 8px 16px;
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--ink);
-  background: var(--warm-paper);
-  border: 1px solid var(--line);
-  border-radius: 4px;
-  transition:
-    background-color 160ms ease,
-    border-color 160ms ease,
-    color 160ms ease;
-}
-
-.blog-card__spokes a:hover {
-  background: var(--gold-light);
-  border-color: var(--gold);
-  color: var(--ink);
-}
-
 .blog-card__arrow {
   font-size: 28px;
   color: var(--gold);
@@ -1775,36 +1746,6 @@ details[open] summary {
   font-size: 28px;
   margin-bottom: 28px;
   color: var(--ink);
-}
-
-.blog-spoke-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-}
-
-.blog-spoke-link {
-  display: block;
-  padding: 20px 24px;
-  font-size: 15px;
-  font-weight: 600;
-  line-height: 1.5;
-  color: var(--ink);
-  background: var(--warm-paper);
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  border-left: 3px solid var(--gold);
-  transition:
-    background-color 160ms ease,
-    border-color 160ms ease,
-    transform 160ms ease;
-}
-
-.blog-spoke-link:hover {
-  background: var(--gold-light);
-  border-color: var(--gold);
-  color: var(--ink);
-  transform: translateX(4px);
 }
 
 /* ── Spoke back-link ─────────────────────────────────────────── */
