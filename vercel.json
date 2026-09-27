@@ -10,6 +10,7 @@
     { "source": "/baza-wiedzy/testament-darowizna-dozywocie/index.html", "destination": "/baza-wiedzy/testament-darowizna-dozywocie/", "permanent": true },
     { "source": "/baza-wiedzy/umowa-przedwstepna/index.html", "destination": "/baza-wiedzy/umowa-przedwstepna/", "permanent": true },
     { "source": "/baza-wiedzy/zakup-mieszkania-rynek-wtorny/index.html", "destination": "/baza-wiedzy/zakup-mieszkania-rynek-wtorny/", "permanent": true },
+    { "source": "/baza-wiedzy/nieruchomosc-lesna-jak-bezpiecznie-i-prawidlowo-nabyc/index.html", "destination": "/baza-wiedzy/nieruchomosc-lesna-jak-bezpiecznie-i-prawidlowo-nabyc/", "permanent": true },
     { "source": "/blog.html", "destination": "/baza-wiedzy.html", "permanent": true },
     { "source": "/blog/:path*", "destination": "/baza-wiedzy/:path*", "permanent": true }
   ]
