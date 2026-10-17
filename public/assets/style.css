@@ -728,6 +728,33 @@ li {
   color: var(--ink);
 }
 
+.info-panel p + p,
+.info-panel p + ul,
+.info-panel ul + p {
+  margin-top: 12px;
+}
+
+.info-panel ul {
+  padding-left: 1.4em;
+}
+
+.info-panel li {
+  list-style: disc;
+  margin: 0.4em 0;
+  line-height: 1.7;
+}
+
+.info-panel p a,
+.info-panel li a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.info-panel p a:hover,
+.info-panel li a:hover {
+  color: var(--gold);
+}
+
 .info-sub-section {
   margin-top: 20px;
   padding: 18px 0;
@@ -941,6 +968,15 @@ details[open] summary {
   color: var(--ink);
   background: var(--warm-paper);
   font-size: 20px;
+}
+
+.fee-table td a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.fee-table td a:hover {
+  color: var(--gold);
 }
 
 .link-grid {
